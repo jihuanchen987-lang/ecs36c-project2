@@ -6,6 +6,8 @@
 template <class K, class V>    
 class CMap{
     public:
+        virtual ~CMap() = default;
+        
         using TEntityFunction = std::function<void(const K &, const V &)>;
         virtual std::size_t Size() const = 0;
         virtual bool Add(const K &key, V val) = 0;
