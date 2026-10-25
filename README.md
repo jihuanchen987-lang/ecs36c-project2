@@ -1,18 +1,26 @@
-# Project X README
+# Project 2 README
 
-Student 1: Partner1 Name (123456789)
+Student 1: Huanchen Ji (927576963)
 
 Student 2: Partner2 Name (123456987)
 
 ## Project Status
-This the current status of the project ...
+Implemented union-find, a hash map, and friend-group management.
+All 43 tests pass. Line coverage is 100% (131/131 lines).
+The Makefile builds the project, runs tests, generates HTML coverage,
+checks memory with Valgrind, and runs all four provided datasets.
+Valgrind reported zero errors in the checks performed.
 
 ## Known Issues
-The project fails to function properly in ...
+LCOV reports mismatched-end-line warnings for GoogleTest-generated code,
+but successfully generates the coverage report.
+The medium dataset reports 3,926 connections, while the instructor
+analysis table lists 3,927.
 
 ## Code References
-* [Different ways to initialize variables](https://stackoverflow.com/questions/22543875/different-ways-to-initialize-variables)
-* [Some other link](https://stackoverflow.com)
+* [std::vector::push_back](https://en.cppreference.com/w/cpp/container/vector/push_back)
+
+* [std::list::splice — moving nodes between hash buckets](https://en.cppreference.com/w/cpp/container/list/splice)
 
 ## Generative AI Use
 I used ChatGPT for Prompt 1, and ZZZZZ for Prompt 2....
