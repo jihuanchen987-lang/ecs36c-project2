@@ -33,3 +33,59 @@ TEST_F(FriendGroupsTest, SingleGroupTest){
         EXPECT_TRUE(MaxFriend == "C" || MaxFriend == "D");
     }
 }
+TEST_F(FriendGroupsTest, EmptyQueriesDoNotCreatePeople) {
+    EXPECT_TRUE(
+        this->DFriendGroups->FriendshipsForSingleGroup().empty()
+    );
+
+    EXPECT_FALSE(
+        this->DFriendGroups->SameFriendGroup({"Unknown", "Other"})
+    );
+
+    EXPECT_FALSE(
+        this->DFriendGroups->SameFriendGroup({"Unknown", "Unknown"})
+    );
+
+    EXPECT_TRUE(
+        this->DFriendGroups->FriendshipsForSingleGroup().empty()
+    );
+}
+TEST_F(FriendGroupsTest, ConnectFourGroupsWithLimitedUsage) {
+    CFriendGroups Groups;
+
+    std::vector<std::string> Names{
+        "A", "B", "C", "D", "E", "F", "G", "H"
+    };
+
+    Groups.AddFriendship({"A", "B"});
+    Groups.AddFriendship({"C", "D"});
+    Groups.AddFriendship({"E", "F"});
+    Groups.AddFriendship({"G", "H"});
+
+    auto Solution = Groups.FriendshipsForSingleGroup();
+    ASSERT_EQ(Solution.size(), 3u);
+
+    // Generating suggestions must not merge existing groups.
+    EXPECT_FALSE(Groups.SameFriendGroup({"A", "C"}));
+
+    for (const auto &Name : Names) {
+        int Usage = 0;
+
+        for (const auto &Connection : Solution) {
+            Usage += std::get<0>(Connection) == Name;
+            Usage += std::get<1>(Connection) == Name;
+        }
+
+        EXPECT_LE(Usage, 2);
+    }
+
+    for (const auto &Connection : Solution) {
+        Groups.AddFriendship(Connection);
+    }
+
+    for (const auto &Name : Names) {
+        EXPECT_TRUE(Groups.SameFriendGroup({"A", Name}));
+    }
+
+    EXPECT_TRUE(Groups.FriendshipsForSingleGroup().empty());
+}
