@@ -89,3 +89,18 @@ TEST_F(FriendGroupsTest, ConnectFourGroupsWithLimitedUsage) {
 
     EXPECT_TRUE(Groups.FriendshipsForSingleGroup().empty());
 }
+TEST_F(FriendGroupsTest, KnownPersonAndUnknownPerson) {
+    this->DFriendGroups->AddFriendship({"A", "B"});
+
+    EXPECT_FALSE(
+        this->DFriendGroups->SameFriendGroup({"A", "Unknown"})
+    );
+
+    EXPECT_TRUE(
+        this->DFriendGroups->SameFriendGroup({"A", "B"})
+    );
+
+    EXPECT_TRUE(
+        this->DFriendGroups->FriendshipsForSingleGroup().empty()
+    );
+}
