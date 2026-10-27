@@ -17,7 +17,7 @@ Scale the instructor numbers with the I-to-S scaling.
 | friends1.csv   | 10       | 19      | 0         | 770,368        | 19      | 0         | 41,202      |
 | friendssm.csv  | 10       | 12      | 1         | 459,667        | 12      | 1         | 18,000      |
 | friendsmed.csv | 1,000    | 3,927   | 4         | 117,562,677    | 3,926   | 4         | 2,454,599   |
-| friendslg.csv  | 100,000  | 416,102 | 29        | 10,381,538,433 | 416,102 | 29        | 436,730,361 |s
+| friendslg.csv  | 100,000  | 416,102 | 29        | 10,381,538,433 | 416,102 | 29        | 436,730,361 |
 Instructor times are scaled by 5671.61 / 499.71. The provided program reports 3,926 connections for friendsmed.csv, while the instructor table lists 3,927.
 
 ## Analysis

@@ -2,7 +2,7 @@
 
 Student 1: Huanchen Ji (927576963)
 
-Student 2: Partner2 Name (123456987)
+Student 2: Omkar Toro (921123231)
 
 ## Project Status
 Implemented union-find, a hash map, and friend-group management.
